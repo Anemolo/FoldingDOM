@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" type="text/css" href="css/base.css" />
     <link rel="stylesheet" type="text/css" href="css/common.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/index4.css" />
     <script>
       document.documentElement.className = "js";
       var supportsCssVars = function() {
@@ -52,34 +52,32 @@
           <a href="index.html" class="frame__demo frame__demo--current"
             >demo 1</a
           >
-          <a href="index2.html" class="frame__demo">demo 2</a>><a
-            href="index3.html"
-            class="frame__demo"
-            >demo 3</a
+          <a href="index2.html" class="frame__demo">demo 2</a
+          ><a href="index3.html" class="frame__demo">demo 3</a
           ><a href="index4.html" class="frame__demo">demo 4</a>
         </div>
       </div>
       <div class="content">
         <div class="fold-content" id="base-content">
           <h1>WORLD HELLO? <span class="extra">FOLDED PLANES</span></h1>
-          <img src="" />
           <h1>WORLD HELLO? <span class="extra">FOLDED PLANES</span></h1>
-          <img src="" />
           <h1>WORLD HELLO? <span class="extra">FOLDED PLANES</span></h1>
-          <img src="" />
         </div>
-        <div class="screen" id="fold-effect">
-          <div class="wrapper-3d">
-            <div class="fold fold-before"></div>
-            <div class="fold fold-center"></div>
-            <div class="fold fold-after"></div>
+        <div class="screen">
+          <div class="folds" id="folds">
+            <div class="fold fold-center" id="fold-center"></div>
+            <div class="fold-3d fold-3d-top top-wrapper">
+              <div class="fold fold-top" id="fold-top"></div>
+            </div>
+            <div class="fold-3d fold-3d-bottom bottom-wrapper">
+              <div class="fold fold-bottom" id="fold-bottom"></div>
+            </div>
           </div>
         </div>
         <button class="btn-debug" id="btn-debug">See Planes</button>
-        <!-- the content -->
       </div>
     </main>
     <!--script src="https://tympanus.net/codrops/adpacks/demoad.js"></script-->
-    <script src="./js/index.js"></script>
+    <script src="./js/index4.js"></script>
   </body>
 </html>

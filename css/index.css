@@ -1,0 +1,87 @@
+/* Styling */
+h1 {
+  position: relative;
+  color: #181818;
+  font-size: 150px;
+  margin-top: 0;
+  padding-top: 1em;
+  line-height: 0.72em;
+  text-align: center;
+}
+span {
+  position: absolute;
+  top: 110%;
+  right: 30px;
+  font-size: 24px;
+  letter-spacing: 0.2rem;
+  font-weight: 400;
+  line-height: 0.72em;
+}
+
+img {
+  width: 100%;
+}
+
+/* Effect Styles */
+
+.wrapper-3d {
+  position: relative;
+  perspective: 250px;
+  transform-style: preserve-3d;
+}
+
+.fold {
+  overflow: hidden;
+  width: 100vw;
+  height: 80vh;
+}
+.fold-scroller {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.fold-after {
+  /* background: #dadada; */
+  position: absolute;
+  transform-origin: top center;
+  transform: rotateX(120deg);
+  right: 0;
+  left: 0;
+  top: calc(100%);
+}
+
+.fold-before {
+  /* background: #dadada; */
+  position: absolute;
+  transform-origin: bottom center;
+  transform: rotateX(-120deg);
+  left: 0;
+  right: 0;
+  bottom: calc(100%);
+}
+.fold-after .fold-scroller {
+  transform: translateY(-100%);
+}
+.fold-before .fold-scroller {
+  transform: translateY(100%);
+}
+/* Debug */
+
+.debug .fold:nth-child(2n) {
+  background: #dadada;
+}
+.debug .fold:nth-child(2n + 1) {
+  background: #bababa;
+}
+
+.btn-debug {
+  position: fixed;
+  top: 10px;
+  padding: 1rem;
+  font-size: 16px;
+  text-transform: uppercase;
+  right: 10px;
+  cursor: pointer;
+  z-index: 100;
+}

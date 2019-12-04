@@ -1,0 +1,58 @@
+.folds {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.fold-3d {
+  position: absolute;
+  left: 0;
+  right: 0;
+  perspective: 100vh;
+  transform-style: preserve-3d;
+}
+
+.fold-3d-top {
+  bottom: 100%;
+  perspective-origin: 50% 100%;
+}
+.fold-3d-bottom {
+  top: 100%;
+  /* Origin at the top of the bottom wrapper, the bottom of the center fold. */
+  perspective-origin: 50% 0%;
+}
+.debug .fold-top {
+  background: #dadada;
+}
+.debug .fold-bottom {
+  background: #dadada;
+}
+.debug .test-center {
+  background: #bababa;
+}
+.fold-bottom {
+  height: 50vh;
+  width: 100%;
+  /* background: #ff000090; */
+  transform-origin: top center;
+}
+.fold-top {
+  height: 50vh;
+  width: 100%;
+  /* background: #ff000090; */
+  transform-origin: bottom center;
+}
+.fold-center {
+  height: 50vh;
+  width: 50vw;
+  /* background: #00ff0090; */
+}
+
+.fold {
+  overflow: hidden;
+  /* width: 70vw;
+  height: 80vh; */
+}
+.fold-scroller {
+  display: flex;
+  flex-direction: column;
+}

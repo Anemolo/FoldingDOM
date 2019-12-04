@@ -1,0 +1,68 @@
+/* Gradient colors need to match background color for the face*/
+.fold:first-of-type:before {
+  background: linear-gradient(to bottom, #ffffffff, #ffffff00);
+}
+.fold:last-of-type:before {
+  background: linear-gradient(to top, #ffffffff, #ffffff00);
+}
+
+.wrapper-3d {
+  position: relative;
+  perspective: 250px;
+  transform-style: preserve-3d;
+}
+
+.fold {
+  overflow: hidden;
+  width: 70vw;
+  /* 100vh / totalFolds = ten each side one in center */
+  height: 4.7619047619vh;
+}
+h1 {
+  position: relative;
+  color: #181818;
+  font-size: 150px;
+  line-height: 0.72em;
+  margin-bottom: 1em;
+  margin-top: 0;
+  text-align: center;
+}
+span {
+  position: absolute;
+  top: 110%;
+  right: 30px;
+  font-size: 24px;
+  letter-spacing: 0.2rem;
+  font-weight: 400;
+  line-height: 0.72em;
+}
+.fold-after {
+  position: absolute;
+  transform-origin: top center;
+  right: 0;
+  left: 0;
+  top: calc(100%);
+}
+.fold-before {
+  position: absolute;
+  transform-origin: bottom center;
+  left: 0;
+  right: 0;
+  bottom: calc(100%);
+}
+
+img {
+  width: 100%;
+}
+
+.fold:first-of-type:before,
+.fold:last-of-type:before {
+  content: "";
+  display: block;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
