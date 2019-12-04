@@ -1,26 +1,4 @@
 /* Styling */
-h1 {
-  position: relative;
-  color: #181818;
-  font-size: 150px;
-  margin-top: 0;
-  padding-top: 1em;
-  line-height: 0.72em;
-  text-align: center;
-}
-span {
-  position: absolute;
-  top: 110%;
-  right: 30px;
-  font-size: 24px;
-  letter-spacing: 0.2rem;
-  font-weight: 400;
-  line-height: 0.72em;
-}
-
-img {
-  width: 100%;
-}
 
 /* Effect Styles */
 
