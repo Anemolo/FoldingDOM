@@ -26,6 +26,7 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 .screen {
@@ -68,4 +69,15 @@ body {
   right: 10px;
   cursor: pointer;
   z-index: 100;
+}
+.square {
+  width: 100%;
+  padding-bottom: 100%;
+  background: #dadada;
+}
+
+.rectangle {
+  width: 100%;
+  padding-bottom: 50%;
+  background: #dadada;
 }
