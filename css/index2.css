@@ -6,12 +6,6 @@
   background: linear-gradient(to top, #ffffffff, #ffffff00);
 }
 
-.wrapper-3d {
-  position: relative;
-  perspective: 250px;
-  transform-style: preserve-3d;
-}
-
 .fold {
   overflow: hidden;
   width: 70vw;
@@ -19,6 +13,12 @@
   height: 4.7619047619vh;
   will-change: transform;
 }
+.wrapper-3d {
+  position: relative;
+  perspective: 250px;
+  transform-style: preserve-3d;
+}
+
 .fold-after {
   position: absolute;
   transform-origin: top center;

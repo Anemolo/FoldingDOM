@@ -2,18 +2,19 @@
 
 /* Effect Styles */
 
-.wrapper-3d {
-  position: relative;
-  perspective: 250px;
-  transform-style: preserve-3d;
-}
-
 .fold {
   overflow: hidden;
   width: 100vw;
   height: 80vh;
   will-change: transform;
 }
+
+.wrapper-3d {
+  position: relative;
+  perspective: 250px;
+  transform-style: preserve-3d;
+}
+
 .fold-scroller {
   display: flex;
   flex-direction: column;
