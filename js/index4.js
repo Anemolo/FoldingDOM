@@ -39,6 +39,8 @@
       this.wrapper = wrapper;
       this.folds = folds;
       this.scrollers = [];
+
+      this.scale = [1, 1];
     }
     setContent(baseContent, createScrollers = true) {
       const folds = this.folds;
@@ -91,7 +93,11 @@
         // Scroller fixed so its aligned
         // scroller.style.transform = `translateY(${100 * -i}%)`;
         // And the content is the one that scrolls
-        scroller.style.transform = `translateY(${translateY})`;
+        let scale = 1;
+        if (i === 0 || i === 2) {
+          scale = this.scale[i / 2];
+        }
+        scroller.style.transform = `translateY(${translateY}) scaleY(${scale})`;
         scroller.children[0].style.transform = `translateY(${scroll}px)`;
       }
     }
@@ -102,6 +108,9 @@
       y = state.follower.y * window.innerHeight * 0.25;
 
       foldsWrapper.style.transform = `translate(${x}px, ${y}px)`;
+
+      this.scale = [];
+      let scales = this.scale;
 
       function getTransform(from, to, reverseRotation = false) {
         // [] - Not quite sure why it doesn't work like the bottoone
@@ -145,9 +154,10 @@
 
         let skewAngle = Math.atan2(-relY, relX);
         let skewAngleDegrees = ((skewAngle + Math.PI / 2) / Math.PI) * 180;
+        scales.push(1 / scale);
 
-        return `skewX(${skewAngleDegrees}deg) rotateX(${xAngleDegrees +
-          0}deg) scaleY(${scale})`;
+        return `skewX(${skewAngleDegrees}deg) rotate3d(1,0, 0,${xAngleDegrees +
+          0}deg) scale3d(1,${scale},1)`;
       }
 
       let centerRect = center.getBoundingClientRect();

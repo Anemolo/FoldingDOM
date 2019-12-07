@@ -41,6 +41,12 @@
   /* background: #ff000090; */
   transform-origin: bottom center;
 }
+.fold-top .fold-scroller {
+  transform-origin: top center;
+}
+.fold-bottom .fold-scroller {
+  transform-origin: top center;
+}
 .fold-center {
   height: 50vh;
   width: 50vw;

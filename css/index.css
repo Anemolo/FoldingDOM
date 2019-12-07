@@ -12,6 +12,7 @@
   overflow: hidden;
   width: 100vw;
   height: 80vh;
+  will-change: transform;
 }
 .fold-scroller {
   display: flex;
@@ -19,24 +20,42 @@
   width: 100%;
   height: 100%;
 }
+.fold-center {
+  transform-origin: center center;
+  transform: translateZ(0px) translate3d(0, 0, 0) rotateX(0)
+    scale3d(1, 1.002004008016032, 1);
+}
 .fold-after {
   /* background: #dadada; */
   position: absolute;
   transform-origin: top center;
-  transform: rotateX(120deg);
+  transform: translateZ(0px) translate3d(0, 80vh, 0) rotateX(120deg)
+    scale3d(1, 1.002004008016032, 1);
   right: 0;
   left: 0;
-  top: calc(100%);
+  top: 0;
+  bottom: 0;
 }
-
+/* .fold-size-fix {
+  transform: scaleY(0.995);
+} */
+.fold-size-fix {
+  transform-origin: center center;
+  transform: scaleY(0.998);
+}
 .fold-before {
   /* background: #dadada; */
   position: absolute;
   transform-origin: bottom center;
-  transform: rotateX(-120deg);
+  transform: translateZ(0px) translate3d(0, -80vh, 0) rotateX(-120deg)
+    scale3d(1, 1.002004008016032, 1);
   left: 0;
   right: 0;
-  bottom: calc(100%);
+  top: 0;
+  bottom: 0;
+}
+.fold-before h1 {
+  /* color: red !important; */
 }
 .fold-after .fold-scroller {
   transform: translateY(-100%);

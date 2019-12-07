@@ -17,20 +17,25 @@
   width: 70vw;
   /* 100vh / totalFolds = ten each side one in center */
   height: 4.7619047619vh;
+  will-change: transform;
 }
 .fold-after {
   position: absolute;
   transform-origin: top center;
   right: 0;
   left: 0;
-  top: calc(100%);
+  /* top: 100%; */
+  top: 0;
+  bottom: 0;
 }
 .fold-before {
   position: absolute;
   transform-origin: bottom center;
   left: 0;
   right: 0;
-  bottom: calc(100%);
+  /* bottom: 100%; */
+  top: 0;
+  bottom: 0;
 }
 
 img {

@@ -24,6 +24,7 @@
     }
     return change;
   }
+  let scaleFix = 0.992;
 
   class FoldedDom {
     constructor(wrapper, folds = null, scrollers = null) {
@@ -43,9 +44,14 @@
         copyContent.id = "";
         let scroller;
         if (createScrollers) {
+          let sizeFixEle = document.createElement("div");
+          sizeFixEle.classList.add("fold-size-fix");
+          // sizeFixEle.style.transform = `scaleY(${scaleFix})`;
+
           scroller = document.createElement("div");
           scroller.classList.add("fold-scroller");
-          fold.append(scroller);
+          sizeFixEle.append(scroller);
+          fold.append(sizeFixEle);
         } else {
           scroller = this.scrollers[i];
         }

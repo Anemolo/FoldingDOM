@@ -13,6 +13,9 @@
   const folds = Array.from(document.getElementsByClassName("fold"));
   const baseContent = document.getElementById("base-content");
 
+  // Scale fix removes the lines between folds for non-retina devices
+  let scaleFix = 0.992;
+
   const toggleDebug = () => {
     wrapper.classList.toggle("debug");
   };
@@ -43,9 +46,17 @@
         copyContent.id = "";
         let scroller;
         if (createScrollers) {
+          // By default the transform is going to have pixel imperfection
+          // https://bugs.chromium.org/p/chromium/issues/detail?id=600120
+          let sizeFixEle = document.createElement("div");
+          sizeFixEle.classList.add("fold-size-fix");
+          sizeFixEle.style.transform = `scale(${scaleFix})`;
+
           scroller = document.createElement("div");
           scroller.classList.add("fold-scroller");
-          fold.append(scroller);
+
+          sizeFixEle.append(scroller);
+          fold.append(sizeFixEle);
         } else {
           scroller = this.scrollers[i];
         }
@@ -74,15 +85,26 @@
         scroller.children[0].style.transform = `translateY(${scroll}px)`;
         let skewValue = 2 * translateSign * (skewAmp - 0.5) * 2;
         let rotateValue = 2 * translateSign * (rotationAmp - 0.5) * 2;
-        let transform = `rotateX(${-rotateValue}deg) skewX(${-skewValue}deg)`;
+        let transform = `translate3d(0,${4.7619047619 *
+          translateSign}vh,0) rotateX(${-rotateValue}deg) skewX(${-skewValue}deg)`;
+
         if (Math.abs(relIndex) > 1) {
           for (let j = 0; j <= Math.abs(relIndex) - 2; j++) {
-            transform = `${transform}  translateY(${100 *
-              translateSign}%) rotateX(${-rotateValue *
+            transform = `${transform} translate3d(0,${4.7619047619 *
+              translateSign}vh,0)  rotateX(${-rotateValue *
               2}deg) skewX(${-skewValue * 2}deg)`;
           }
         }
-        fold.style.transform = transform;
+
+        // let transform = `rotateX(${-rotateValue}deg) skewX(${-skewValue}deg)`;
+        // if (Math.abs(relIndex) > 1) {
+        //   for (let j = 0; j <= Math.abs(relIndex) - 2; j++) {
+        //     transform = `${transform}  translateY(${100 *
+        //       translateSign}%) rotateX(${-rotateValue *
+        //       2}deg) skewX(${-skewValue * 2}deg)`;
+        //   }
+        // }
+        fold.style.transform = transform + ` scale3d(1,${1 / scaleFix},1)`;
       }
     }
   }

@@ -47,7 +47,16 @@ body {
   pointer-events: all;
   width: 100%;
 }
-
+.fold-size-fix {
+  width: 100%;
+  height: 100%;
+}
+.fold-before .fold-size-fix {
+  transform-origin: bottom center;
+}
+.fold-after .fold-size-fix {
+  transform-origin: top center;
+}
 #base-content {
   display: none;
 }
