@@ -82,11 +82,11 @@ body {
 .square {
   width: 100%;
   padding-bottom: 100%;
-  background: #dadada;
+  background: coral;
 }
 
 .rectangle {
   width: 100%;
   padding-bottom: 50%;
-  background: #dadada;
+  background: coral;
 }
