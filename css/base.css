@@ -151,6 +151,7 @@ a:focus {
 	color: var(--color-bg);
 	padding: 1rem;
 	text-align: center;
+	display: none;
 }
 
 .frame {
