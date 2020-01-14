@@ -1,3 +1,57 @@
+body {
+  --color-bg: #faebd7;
+  --color-text: #24221f;
+  --color-link: #a5271b;
+  --color-link-hover: #69140c;
+  font-family: halyard-display, sans-serif;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+.frame {
+  color: #a5271b;
+  font-weight: 500;
+}
+
+.frame__title,
+.frame {
+  font-size: 1.3rem;
+}
+
+.content__headline {
+  font-size: 0.9rem;
+  margin: 2rem 0 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.content__type {
+  font-size: 2.5vw;
+  margin: 3rem auto 5rem;
+  line-height: 1.25;
+  font-family: halyard-display, sans-serif;
+  font-weight: 300;
+  backface-visibility: hidden;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+  background-size: 80%;
+}
+
+.content__img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto 5rem;
+  backface-visibility: hidden;
+}
+
+/* Effect Styles */
+
 .folds {
   position: relative;
   transform-style: preserve-3d;
@@ -50,15 +104,19 @@
 .fold-center {
   height: 50vh;
   width: 50vw;
-  /* background: #00ff0090; */
 }
 
 .fold {
   overflow: hidden;
-  /* width: 70vw;
-  height: 80vh; */
+  //border: 1px solid #000;
+  border-top: 0;
+  border-bottom: 0;
 }
 .fold-scroller {
   display: flex;
   flex-direction: column;
+}
+
+.fold-content {
+  padding: 0 2rem;
 }

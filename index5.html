@@ -1,88 +1,95 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Demoname | Demo 1 | Codrops</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <title>3D Folded Layout | Demo 5 | Codrops</title>
+    <meta name="description" content="An experiemntal 3D layout technique for HTML elements." />
+    <meta name="keywords" content="3d, layout, html, css, bending, javascript, demo" />
     <meta name="author" content="Codrops" />
     <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://use.typekit.net/xsl0wab.css">
     <link rel="stylesheet" type="text/css" href="css/base.css" />
-    <link rel="stylesheet" type="text/css" href="css/common.css" />
-    <link rel="stylesheet" type="text/css" href="css/index5.css" />
+    <link rel="stylesheet" type="text/css" href="css/horizontal.css" />
     <script>
-      document.documentElement.className = "js";
-      var supportsCssVars = function() {
+    document.documentElement.className = "js";
+    var supportsCssVars = function() {
         var e,
-          t = document.createElement("style");
+            t = document.createElement("style");
         return (
-          (t.innerHTML = "root: { --tmp-var: bold; }"),
-          document.head.appendChild(t),
-          (e = !!(
-            window.CSS &&
-            window.CSS.supports &&
-            window.CSS.supports("font-weight", "var(--tmp-var)")
-          )),
-          t.parentNode.removeChild(t),
-          e
+            (t.innerHTML = "root: { --tmp-var: bold; }"),
+            document.head.appendChild(t),
+            (e = !!(
+                window.CSS &&
+                window.CSS.supports &&
+                window.CSS.supports("font-weight", "var(--tmp-var)")
+            )),
+            t.parentNode.removeChild(t),
+            e
         );
-      };
-      supportsCssVars() ||
+    };
+    supportsCssVars() ||
         alert(
-          "Please view this demo in a modern browser that supports CSS Variables."
+            "Please view this demo in a modern browser that supports CSS Variables."
         );
     </script>
-    <!--script src="//tympanus.net/codrops/adpacks/analytics.js"></script-->
-  </head>
-  <body class="demo-1">
+</head>
+
+<body class="demo-5">
     <main>
-      <div class="message">Some message for mobile (if needed).</div>
-      <div class="frame">
-        <div class="frame__title-wrap">
-          <h1 class="frame__title">Title</h1>
-          <p class="frame__tagline">Subtitle</p>
+        <div class="message">Some message for mobile (if needed).</div>
+        <div class="frame">
+            <h1 class="frame__title">3D Folded Layout</h1>
+            <div class="frame__heading-wrap">
+                <h2 class="frame__heading">Addis &mdash; Fashion</h2>
+                <time datetime="2020-03-01">March, 2020</time>
+            </div>
+            <div class="frame__links">
+                <a href="http://tympanus.net/Tutorials/TextureProjection/">Previous Demo</a>
+                <a href="https://tympanus.net/codrops/?p=46441">Article</a>
+                <a href="https://github.com/Anemolo/FoldingDOM">GitHub</a>
+            </div>
+            <div class="frame__demos">
+                <a href="index.html" class="frame__demo">demo 1</a>
+                <a href="index2.html" class="frame__demo">demo 2</a>
+                <a href="index3.html" class="frame__demo">demo 3</a>
+                <a href="index4.html" class="frame__demo">demo 4</a>
+                <a href="index5.html" class="frame__demo frame__demo--current">demo 5</a>
+            </div>
         </div>
-        <div class="frame__links">
-          <a href="">Previous Demo</a>
-          <a href="">Article</a>
-          <a href="">GitHub</a>
+        <div class="content">
+            <div class="fold-content" id="base-content">
+                <img class="content__img" src="img/1.jpg" alt="Some image" />
+                <h3 class="content__title">Dan Zenawi</h3>
+                <img class="content__img" src="img/2.jpg" alt="Some image" />
+                <h3 class="content__title">Clark Bekele</h3>
+                <img class="content__img" src="img/3.jpg" alt="Some image" />
+                <h3 class="content__title">Teddy Abele</h3>
+                <img class="content__img" src="img/4.jpg" alt="Some image" />
+                <h3 class="content__title">Yared Mengestu</h3>
+                <img class="content__img" src="img/5.jpg" alt="Some image" />
+                <h3 class="content__title">Ali Tamrat</h3>
+                <img class="content__img" src="img/6.jpg" alt="Some image" />
+                <h3 class="content__title">Abatte Dibaba</h3>
+                <img class="content__img" src="img/7.jpg" alt="Some image" />
+                <h3 class="content__title">Edward Yuma</h3>
+                <img class="content__img" src="img/8.jpg" alt="Some image" />
+                <h3 class="content__title">Aster Shubissa</h3>
+                <img class="content__img" src="img/9.jpg" alt="Some image" />
+                <h3 class="content__title">Mahder Gebremarkos</h3>
+            </div>
+            <div class="screen" id="fold-effect">
+                <div class="wrapper-3d">
+                    <div class="fold fold-before fold-before-3"></div>
+                    <div class="fold fold-before fold-before-2"></div>
+                    <div class="fold fold-before fold-before-1"></div>
+                    <div class="fold fold-main"></div>
+                </div>
+            </div>
         </div>
-        <div class="frame__demos">
-          <a href="index.html" class="frame__demo frame__demo--current"
-            >demo 1</a
-          >
-          <a href="index2.html" class="frame__demo">demo 2</a
-          ><a href="index3.html" class="frame__demo">demo 3</a
-          ><a href="index4.html" class="frame__demo">demo 4</a
-          ><a href="index5.html" class="frame__demo">demo 5</a>
-        </div>
-      </div>
-      <div class="content debug">
-        <div class="fold-content" id="base-content">
-          <!-- CONTENT INSIDE HERE -->
-          <h1>WORLD HELLO? <span class="extra">FOLDED PLANES</span></h1>
-          <div class="square--vertical"></div>
-          <h1>WORLD HELLO? <span class="extra">FOLDED PLANES</span></h1>
-          <div class="square--vertical"></div>
-          <h1>WORLD HELLO? <span class="extra">FOLDED PLANES</span></h1>
-          <div class="square--vertical"></div>
-          <h1>WORLD HELLO? <span class="extra">FOLDED PLANES</span></h1>
-          <div class="square--vertical"></div>
-          <h1>WORLD HELLO? <span class="extra">FOLDED PLANES</span></h1>
-        </div>
-        <div class="screen" id="fold-effect">
-          <div class="wrapper-3d">
-            <div class="fold fold-before fold-before-3"></div>
-            <div class="fold fold-before fold-before-2"></div>
-            <div class="fold fold-before fold-before-1"></div>
-            <div class="fold fold-main"></div>
-          </div>
-        </div>
-        <button class="btn-debug" id="btn-debug">See Planes</button>
-      </div>
     </main>
-    <!--script src="https://tympanus.net/codrops/adpacks/demoad.js"></script-->
-    <script src="./js/index5.js"></script>
-  </body>
+    <script src="./js/horizontal.js"></script>
+</body>
+
 </html>

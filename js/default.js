@@ -61,7 +61,7 @@
       }
       this.scrollers = scrollers;
     }
-    updateStyles(scroll) {
+    updateStyles(scroll, skewAmp, rotationAmp) {
       const folds = this.folds;
       const scrollers = this.scrollers;
 
@@ -71,91 +71,50 @@
         // Scroller fixed so its aligned
         // scroller.style.transform = `translateY(${100 * -i}%)`;
         // And the content is the one that scrolls
-        scroller.children[0].style.transform = `translateX(${scroll}px)`;
+        scroller.children[0].style.transform = `translateY(${scroll}px)`;
       }
     }
   }
 
   let insideFold;
 
-  const mainFold = folds[folds.length - 1];
+  const centerFold = folds[Math.floor(folds.length / 2)];
   let tick = () => {
     if (state.disposed) return;
 
-    // Calculate the scroll based on how much the content is outside the mainFold
+    // Calculate the scroll based on how much the content is outside the centerFold
+    document.body.style.height =
+      insideFold.scrollers[0].children[0].clientHeight -
+      centerFold.clientHeight +
+      window.innerHeight +
+      "px";
 
-    // state.targetScroll = -(
-    //   document.documentElement.scrollLeft || document.body.scrollLeft
-    // );
-    state.targetScroll = Math.max(
-      Math.min(0, state.targetScroll),
-      -insideFold.scrollers[0].children[0].clientWidth + mainFold.clientWidth
+    state.targetScroll = -(
+      document.documentElement.scrollTop || document.body.scrollTop
     );
     state.scroll += lerp(state.scroll, state.targetScroll, 0.1, 0.0001);
 
     insideFold.updateStyles(state.scroll);
+    // setScrollStyles(state.currentY);
 
     requestAnimationFrame(tick);
   };
-  /** ATTACH EVENTS */
-  let lastClientX = null;
-  let isDown = false;
-
-  let onDown = ev => {
-    // console.log(
-    //   Math.max(
-    //     state.targetScroll,
-    //     -insideFold.scrollers[0].children[0].clientWidth + mainFold.clientWidth
-    //   )
-    // );
-    console.log(
-      "s",
-      -insideFold.scrollers[0].children[0].clientWidth + mainFold.clientWidth
-    );
-    isDown = true;
-  };
-  let onUp = ev => {
-    isDown = false;
-  };
-
-  window.addEventListener("mousedown", onDown);
-  window.addEventListener("mouseup", onUp);
-  window.addEventListener("mouseout", ev => {
-    var from = ev.relatedTarget || ev.toElement;
-    if (!from || from.nodeName == "HTML") {
-      // stop your drag event here
-      // for now we can just use an alert
-      isDown = false;
-    }
-  });
-  window.addEventListener("touchstart", onDown);
-  window.addEventListener("touchend", onUp);
-  window.addEventListener("touchcancel", onUp);
-
-  window.addEventListener("mousemove", ev => {
-    if (lastClientX && isDown) {
-      state.targetScroll += ev.clientX - lastClientX;
-    }
-    lastClientX = ev.clientX;
-  });
-
-  window.addEventListener("touchmove", ev => {
-    let touch = ev.touches[0];
-    if (lastClientX && isDown) {
-      state.targetScroll += ev.clientX - lastClientX;
-    }
-    lastClientX = ev.clientX;
-  });
-
-  window.addEventListener("wheel", ev => {
-    // Fixefox delta is like 1px and chrome 100
-    state.targetScroll += -Math.sign(ev.deltaY) * 120;
-  });
-  /****************
-  // INIT STUFF
- ******************/
   insideFold = new FoldedDom(wrapper, folds);
   insideFold.setContent(baseContent);
 
   tick();
+
+  // Preload fonts
+  const preloadFonts = () => {
+    return new Promise((resolve, reject) => {
+      WebFont.load({
+        typekit: {
+          id: 'ofv7fvi'
+        },
+        active: resolve
+      });
+    });
+  };
+
+  preloadFonts().then(() => document.body.classList.remove('loading'));
 })();

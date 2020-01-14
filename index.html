@@ -1,83 +1,154 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Demoname | Demo 1 | Codrops</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <title>3D Folded Layout | Demo 1 | Codrops</title>
+    <meta name="description" content="An experiemntal 3D layout technique for HTML elements." />
+    <meta name="keywords" content="3d, layout, html, css, bending, javascript, demo" />
     <meta name="author" content="Codrops" />
     <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://use.typekit.net/ofv7fvi.css">
     <link rel="stylesheet" type="text/css" href="css/base.css" />
-    <link rel="stylesheet" type="text/css" href="css/common.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/typo.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
     <script>
-      document.documentElement.className = "js";
-      var supportsCssVars = function() {
+    document.documentElement.className = "js";
+    var supportsCssVars = function() {
         var e,
-          t = document.createElement("style");
+            t = document.createElement("style");
         return (
-          (t.innerHTML = "root: { --tmp-var: bold; }"),
-          document.head.appendChild(t),
-          (e = !!(
-            window.CSS &&
-            window.CSS.supports &&
-            window.CSS.supports("font-weight", "var(--tmp-var)")
-          )),
-          t.parentNode.removeChild(t),
-          e
+            (t.innerHTML = "root: { --tmp-var: bold; }"),
+            document.head.appendChild(t),
+            (e = !!(
+                window.CSS &&
+                window.CSS.supports &&
+                window.CSS.supports("font-weight", "var(--tmp-var)")
+            )),
+            t.parentNode.removeChild(t),
+            e
         );
-      };
-      supportsCssVars() ||
+    };
+    supportsCssVars() ||
         alert(
-          "Please view this demo in a modern browser that supports CSS Variables."
+            "Please view this demo in a modern browser that supports CSS Variables."
         );
     </script>
-    <!--script src="//tympanus.net/codrops/adpacks/analytics.js"></script-->
-  </head>
-  <body class="demo-1">
+</head>
+
+<body class="demo-1 loading">
     <main>
-      <div class="message">Some message for mobile (if needed).</div>
-      <div class="frame">
-        <div class="frame__title-wrap">
-          <h1 class="frame__title">Title</h1>
-          <p class="frame__tagline">Subtitle</p>
+        <div class="message">Some message for mobile (if needed).</div>
+        <div class="frame">
+            <h1 class="frame__title">3D Folded Layout</h1>
+            <div class="frame__links">
+                <a href="http://tympanus.net/Tutorials/TextureProjection/">Previous Demo</a>
+                <a href="https://tympanus.net/codrops/?p=46441">Article</a>
+                <a href="https://github.com/Anemolo/FoldingDOM">GitHub</a>
+            </div>
+            <div class="frame__demos">
+                <a href="index.html" class="frame__demo frame__demo--current">demo 1</a>
+                <a href="index2.html" class="frame__demo">demo 2</a><a href="index3.html" class="frame__demo">demo 3</a><a href="index4.html" class="frame__demo">demo 4</a><a href="index5.html" class="frame__demo">demo 5</a>
+            </div>
         </div>
-        <div class="frame__links">
-          <a href="">Previous Demo</a>
-          <a href="">Article</a>
-          <a href="">GitHub</a>
+        <div class="content">
+            <div class="fold-content" id="base-content">
+                <!-- CONTENT INSIDE HERE -->
+                <div class="content__line">
+                    <span class="type type--1">Bocelli</span>
+                    <span class="type type--2">Barcelona</span>
+                    <span class="type type--1">Bocelli</span>
+                    <span class="type type--2">Barcelona</span>
+                </div>
+                <div class="content__line">
+                    <span class="type type--3">Sandeca</span>
+                    <span class="type type--4">Budapest</span>
+                    <span class="type type--3">Sandeca</span>
+                    <span class="type type--4">Budapest</span>
+                </div>
+                <div class="content__line">
+                    <span class="type type--6">Franklin</span>
+                    <span class="type type--1">Berlin</span>
+                    <span class="type type--6">Franklin</span>
+                </div>
+                <div class="content__line">
+                    <span class="type type--5">Tokyo</span>
+                    <span class="type type--2">Hoshen</span>
+                    <span class="type type--5">Tokyo</span>
+                </div>
+                <div class="content__line">
+                    <span class="type type--1">Andrew</span>
+                    <span class="type type--7">New York</span>
+                    <span class="type type--1">Andrew</span>
+                    <span class="type type--7">New York</span>
+                </div>
+                <div class="content__line">
+                    <span class="type type--3">Sandeca</span>
+                    <span class="type type--4">Budapest</span>
+                    <span class="type type--3">Sandeca</span>
+                    <span class="type type--4">Budapest</span>
+                    <span class="type type--3">Sandeca</span>
+                    <span class="type type--4">Budapest</span>
+                </div>
+                <div class="content__line">
+                    <span class="type type--6">Franklin</span>
+                    <span class="type type--1">Berlin</span>
+                    <span class="type type--6">Franklin</span>
+                    <span class="type type--1">Berlin</span>
+                    <span class="type type--6">Franklin</span>
+                    <span class="type type--1">Berlin</span>
+                </div>
+                <div class="content__line">
+                    <span class="type type--5">Tokyo</span>
+                    <span class="type type--2">Hoshen</span>
+                    <span class="type type--5">Tokyo</span>
+                    <span class="type type--2">Hoshen</span>
+                    <span class="type type--5">Tokyo</span>
+                    <span class="type type--2">Hoshen</span>
+                </div>
+                <div class="content__line">
+                    <span class="type type--1">Bocelli</span>
+                    <span class="type type--2">Barcelona</span>
+                    <span class="type type--1">Bocelli</span>
+                    <span class="type type--2">Barcelona</span>
+                </div>
+                <div class="content__line">
+                    <span class="type type--3">Sandeca</span>
+                    <span class="type type--4">Budapest</span>
+                    <span class="type type--3">Sandeca</span>
+                    <span class="type type--4">Budapest</span>
+                    <span class="type type--3">Sandeca</span>
+                    <span class="type type--4">Budapest</span>
+                </div>
+                <div class="content__line">
+                    <span class="type type--6">Franklin</span>
+                    <span class="type type--1">Berlin</span>
+                    <span class="type type--6">Franklin</span>
+                    <span class="type type--1">Berlin</span>
+                    <span class="type type--6">Franklin</span>
+                    <span class="type type--1">Berlin</span>
+                </div>
+                <div class="content__line">
+                    <span class="type type--5">Tokyo</span>
+                    <span class="type type--2">Hoshen</span>
+                    <span class="type type--5">Tokyo</span>
+                    <span class="type type--2">Hoshen</span>
+                    <span class="type type--5">Tokyo</span>
+                    <span class="type type--2">Hoshen</span>
+                </div>
+            </div>
+            <div class="screen" id="fold-effect">
+                <div class="wrapper-3d">
+                    <div class="fold fold-before"></div>
+                    <div class="fold fold-center"></div>
+                    <div class="fold fold-after"></div>
+                </div>
+            </div>
+            <button class="btn-debug" id="btn-debug" style="visibility:hidden">See Planes</button>
         </div>
-        <div class="frame__demos">
-          <a href="index.html" class="frame__demo frame__demo--current"
-            >demo 1</a
-          >
-          <a href="index2.html" class="frame__demo">demo 2</a
-          ><a href="index3.html" class="frame__demo">demo 3</a
-          ><a href="index4.html" class="frame__demo">demo 4</a
-          ><a href="index5.html" class="frame__demo">demo 5</a>
-        </div>
-      </div>
-      <div class="content">
-        <div class="fold-content" id="base-content">
-          <!-- CONTENT INSIDE HERE -->
-          <h1>WORLD HELLO? <span class="extra">FOLDED PLANES</span></h1>
-          <h1>WORLD HELLO? <span class="extra">FOLDED PLANES</span></h1>
-          <h1>WORLD HELLO? <span class="extra">FOLDED PLANES</span></h1>
-          <h1>WORLD HELLO? <span class="extra">FOLDED PLANES</span></h1>
-          <h1>WORLD HELLO? <span class="extra">FOLDED PLANES</span></h1>
-        </div>
-        <div class="screen" id="fold-effect">
-          <div class="wrapper-3d">
-            <div class="fold fold-before"></div>
-            <div class="fold fold-center"></div>
-            <div class="fold fold-after"></div>
-          </div>
-        </div>
-        <button class="btn-debug" id="btn-debug">See Planes</button>
-      </div>
     </main>
-    <!--script src="https://tympanus.net/codrops/adpacks/demoad.js"></script-->
-    <script src="./js/index.js"></script>
-  </body>
+    <script src="./js/default.js"></script>
+</body>
+
 </html>

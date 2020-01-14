@@ -225,8 +225,8 @@
       "px";
 
     // Make it mouse bouncy with a spring
-    let spring = 0.06;
-    let friction = 0.85;
+    let spring = 0.03;
+    let friction = 0.75;
 
     let relMouse = {
       x: (state.mouse.x - state.follower.x) * spring,

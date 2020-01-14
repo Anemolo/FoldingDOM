@@ -1,87 +1,79 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Demoname | Demo 1 | Codrops</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <title>3D Folded Layout | Demo 3 | Codrops</title>
+    <meta name="description" content="An experiemntal 3D layout technique for HTML elements." />
+    <meta name="keywords" content="3d, layout, html, css, bending, javascript, demo" />
     <meta name="author" content="Codrops" />
     <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://use.typekit.net/yxd7izj.css">
     <link rel="stylesheet" type="text/css" href="css/base.css" />
-    <link rel="stylesheet" type="text/css" href="css/common.css" />
-    <link rel="stylesheet" type="text/css" href="css/index3.css" />
+    <link rel="stylesheet" type="text/css" href="css/split.css" />
     <script>
-      document.documentElement.className = "js";
-      var supportsCssVars = function() {
+    document.documentElement.className = "js";
+    var supportsCssVars = function() {
         var e,
-          t = document.createElement("style");
+            t = document.createElement("style");
         return (
-          (t.innerHTML = "root: { --tmp-var: bold; }"),
-          document.head.appendChild(t),
-          (e = !!(
-            window.CSS &&
-            window.CSS.supports &&
-            window.CSS.supports("font-weight", "var(--tmp-var)")
-          )),
-          t.parentNode.removeChild(t),
-          e
+            (t.innerHTML = "root: { --tmp-var: bold; }"),
+            document.head.appendChild(t),
+            (e = !!(
+                window.CSS &&
+                window.CSS.supports &&
+                window.CSS.supports("font-weight", "var(--tmp-var)")
+            )),
+            t.parentNode.removeChild(t),
+            e
         );
-      };
-      supportsCssVars() ||
+    };
+    supportsCssVars() ||
         alert(
-          "Please view this demo in a modern browser that supports CSS Variables."
+            "Please view this demo in a modern browser that supports CSS Variables."
         );
     </script>
-    <!--script src="//tympanus.net/codrops/adpacks/analytics.js"></script-->
-  </head>
-  <body class="demo-1">
+</head>
+
+<body class="demo-3">
     <main>
-      <div class="message">Some message for mobile (if needed).</div>
-      <div class="frame">
-        <div class="frame__title-wrap">
-          <h1 class="frame__title">Title</h1>
-          <p class="frame__tagline">Subtitle</p>
+        <div class="message">Some message for mobile (if needed).</div>
+        <div class="frame">
+            <h1 class="frame__title">3D Folded Layout</h1>
+            <div class="frame__links">
+                <a href="http://tympanus.net/Tutorials/TextureProjection/">Previous Demo</a>
+                <a href="https://tympanus.net/codrops/?p=46441">Article</a>
+                <a href="https://github.com/Anemolo/FoldingDOM">GitHub</a>
+            </div>
+            <div class="frame__demos">
+                <a href="index.html" class="frame__demo">demo 1</a>
+                <a href="index2.html" class="frame__demo">demo 2</a><a href="index3.html" class="frame__demo frame__demo--current">demo 3</a><a href="index4.html" class="frame__demo">demo 4</a>
+                <a href="index5.html" class="frame__demo">demo 5</a>
+            </div>
         </div>
-        <div class="frame__links">
-          <a href="">Previous Demo</a>
-          <a href="">Article</a>
-          <a href="">GitHub</a>
+        <div class="content">
+            <div class="fold-content" id="base-content">
+                <!-- CONTENT INSIDE HERE -->
+                <p class="content__type">
+                    <span class="content__type-special">Admit it.</span> You aren’t like them. You’re not even close. You may occasionally dress yourself up as one of them, watch the same mindless television shows as they do, maybe even eat the same fast food sometimes.
+                </p>
+                <img class="content__img" src="img/15.jpg" alt="Some image" />
+                <p class="content__type">
+                    But it seems that the more you try to fit in, the more you feel like an outsider, watching the “normal people” as they go about their automatic existences. For every time you say club passwords like “Have a nice day” and “Weather’s awful today, eh?”, you yearn inside to say forbidden things like “Tell me something that makes you cry” or “What do you think deja vu is for?”. Face it, you even want to talk to that girl in the elevator.
+                </p>
+                <img class="content__img" src="img/16.jpg" alt="Some image" />
+                <p class="content__type">
+                    But what if that girl in the elevator (and the balding man who walks past your cubicle at work) are thinking the same thing? Who knows what you might learn from taking a chance on conversation with a stranger? Everyone carries a piece of the puzzle. Nobody comes into your life by mere coincidence. Trust your instincts. Do the unexpected. Find the others…
+                </p>
+                <img class="content__img" src="img/17.jpg" alt="Some image" />
+                <p class="content__type">Timothy Francis Leary <br />(October 22, 1920 – May 31, 1996)</p>
+            </div>
+            <div class="screen" id="fold-wrapper"></div>
+            <button class="btn-debug" id="btn-debug">See Planes</button>
         </div>
-        <div class="frame__demos">
-          <a href="index.html" class="frame__demo frame__demo--current"
-            >demo 1</a
-          >
-          <a href="index2.html" class="frame__demo">demo 2</a
-          ><a href="index3.html" class="frame__demo">demo 3</a
-          ><a href="index4.html" class="frame__demo">demo 4</a>><a
-            href="index5.html"
-            class="frame__demo"
-            >demo 5</a
-          >
-        </div>
-      </div>
-      <div class="content">
-        <div class="fold-content" id="base-content">
-          <!-- CONTENT INSIDE HERE -->
-          <h1>WORLD CENTER? <span class="extra">FOLDED PLANES</span></h1>
-          <div class="rectangle"></div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro id
-            vel doloribus reiciendis fugiat tempore magnam sit eum, nam facere
-            esse doloremque eos perferendis sapiente architecto? A odio ab vero.
-          </p>
-          <h1>SPLIT ME?</h1>
-          <h1>SPLIT ME?</h1>
-          <h1>SPLIT ME?</h1>
-          <h1>SPLIT ME?</h1>
-          <h1>SPLIT ME?</h1>
-        </div>
-        <div class="screen" id="fold-wrapper"></div>
-        <button class="btn-debug" id="btn-debug">See Planes</button>
-      </div>
     </main>
-    <!--script src="https://tympanus.net/codrops/adpacks/demoad.js"></script-->
-    <script src="./js/index3.js"></script>
-  </body>
+    <script src="./js/split.js"></script>
+</body>
+
 </html>

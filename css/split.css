@@ -1,3 +1,43 @@
+body {
+  --color-bg: #0f0f11;
+  --color-text: #e3e5eb;
+  --color-link: #595980;
+  --color-link-hover: #fff;
+}
+
+.content__type {
+  font-size: 7vw;
+  margin: 0 auto;
+  text-align: justify;
+  font-family: condor-compressed, sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding: 5rem 0;
+  line-height: 1;
+  backface-visibility: hidden;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+  background-size: 80%;
+}
+
+.content__type-special {
+  font-size: 29vw;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content__img {
+  width: 100%;
+  display: block;
+  backface-visibility: hidden;
+}
+
+/* Effect Styles */
+
 .fold-scroller {
   /* Twice the fold's width */
   width: 60vw;

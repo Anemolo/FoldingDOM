@@ -1,0 +1,157 @@
+/* Styling */
+
+body {
+  --color-bg: #000;
+  --color-text: #fff;
+  --color-link: #ff1662;
+  --color-link-hover: #900935;
+}
+
+.content__line {
+  text-align: center;
+  margin: 1vh 0 2vh -5vw;
+  display: flex;
+  backface-visibility: hidden;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.type {
+  --type-size: 9vw;
+  font-size: var(--type-size);
+  line-height: 0.9;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.type--1 {
+  font-family: termina, sans-serif;
+  font-weight: 100;
+}
+
+.type--2 {
+  font-family: termina, sans-serif;
+  font-weight: 700;
+}
+
+.type--3 {
+  font-family: mongoose, sans-serif;
+  font-weight: 300;
+  font-size: calc(var(--type-size) * 1.04);
+}
+
+.type--4 {
+  font-family: bely-display, sans-serif;
+  font-weight: 400;
+}
+
+.type--5 {
+  font-family: retiro-std-24pt, sans-serif;
+  font-weight: 700;
+  line-height: 0.97;
+}
+
+.type--6 {
+  font-family: rig-solid-bold-halftone, sans-serif;
+  font-weight: 700; 
+}
+
+.type--7 {
+  font-family: tenez, sans-serif;
+  font-weight: 900; 
+  font-size: 10vw;
+  line-height: 0.7;
+}
+
+/* Effect Styles */
+
+.fold {
+    overflow: hidden;
+    width: 100vw;
+    height: 80vh;
+    will-change: transform;
+}
+
+.wrapper-3d {
+    position: relative;
+    perspective: 250px;
+    transform-style: preserve-3d;
+}
+
+.fold-scroller {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.fold-center {
+    transform-origin: center center;
+    transform: translateZ(0px) translate3d(0, 0, 0) rotateX(0) scale3d(1, 1.002004008016032, 1);
+}
+
+.fold-after {
+    /* background: #dadada; */
+    position: absolute;
+    transform-origin: top center;
+    transform: translateZ(0px) translate3d(0, 80vh, 0) rotateX(120deg) scale3d(1, 1.002004008016032, 1);
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* .fold-size-fix {
+  transform: scaleY(0.995);
+} */
+.fold-size-fix {
+    transform-origin: center center;
+    transform: scaleY(0.998);
+}
+
+.fold-before {
+    /* background: #dadada; */
+    position: absolute;
+    transform-origin: bottom center;
+    transform: translateZ(0px) translate3d(0, -80vh, 0) rotateX(-120deg) scale3d(1, 1.002004008016032, 1);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.fold-before h1 {
+    /* color: red !important; */
+}
+
+.fold-after .fold-scroller {
+    transform: translateY(-100%);
+}
+
+.fold-before .fold-scroller {
+    transform: translateY(100%);
+}
+
+/* Debug */
+
+.debug .fold:nth-child(2n) {
+    background: #dadada;
+}
+
+.debug .fold:nth-child(2n + 1) {
+    background: #bababa;
+}
+
+.btn-debug {
+    position: fixed;
+    top: 10px;
+    padding: 1rem;
+    font-size: 16px;
+    text-transform: uppercase;
+    right: 10px;
+    cursor: pointer;
+    z-index: 100;
+}

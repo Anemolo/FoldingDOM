@@ -1,0 +1,174 @@
+:root {
+	font-size: 16px;
+}
+
+body {
+	overflow: hidden;
+	user-select: none;
+	cursor: grab;
+	background: #e5e4cf;
+	font-family: turquoise, serif;
+	--color-text: #a0893d;
+	--color-link: #000;
+}
+
+.screen {
+	top: 2rem;
+}
+
+.fold {
+	overflow: hidden;
+	width: calc(40vw + 1px);
+	height: 50vh;
+	will-change: transform;
+	background: #cec39e;
+}
+
+.wrapper-3d {
+	position: relative;
+	perspective: 50vw;
+	transform-style: preserve-3d;
+}
+
+.fold-content {
+	display: flex;
+	height: 100%;
+	flex-direction: row;
+	width: min-content;
+	align-items: flex-end;
+}
+
+.fold-scroller {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+
+.fold-center {
+	transform-origin: center center;
+}
+
+.wrapper-3d {
+	position: absolute;
+	right: 0;
+}
+
+.fold-after {
+	/* background: #dadada; */
+	position: absolute;
+	transform-origin: top center;
+	transform: translate3d(0, 80vh, 0) rotateX(120deg);
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.fold-size-fix {
+	transform-origin: center center;
+	width: calc(100% + 1px);
+}
+
+.fold-before {
+	position: absolute;
+	transform-origin: right center;
+	transform: translate3d(-100%, 0, 0) rotateY(-10deg);
+	left: 0px;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.fold-before-1 {
+	transform: translate3d(-100%, 0, 0) rotateY(-35deg);
+}
+
+.fold-before-2 {
+	transform: translate3d(-100%, 0, 0) rotateY(-35deg) translate3d(-100%, 0, 0) rotateY(35deg);
+
+	/*transform: translate3d(calc(-100% + 3px), 0, 0) rotateY(-35.1deg) translate3d(-100%, 0, 0) rotateY(35deg);
+    width: calc(40vw + 7px);*/
+}
+
+.fold-before-3 {
+	transform: translate3d(-100%, 0, 0) rotateY(-35deg) translate3d(-100%, 0, 0) rotateY(35deg) translate3d(-100%, 0, 0) rotateY(110deg);
+}
+
+.fold-main .fold-scroller {
+	transform: translateX(-200%);
+}
+
+.fold-before-1 .fold-scroller {
+	transform: translateX(-100%);
+}
+
+.fold-before-2 .fold-scroller {
+	transform: translateX(0%);
+}
+
+.fold-before-3 .fold-scroller {
+	transform: translateX(100%);
+}
+
+.fold-before-4 .fold-scroller {
+	transform: translateX(400%);
+}
+
+.fold-before-1::after {
+	content: '';
+	background: rgba(0,0,0,0.08);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	pointer-events: none;
+}
+
+.content {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: -moz-none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.content__img {
+	flex: none;
+	display: block;
+	height: 100%;
+	pointer-events: none;
+}
+
+.content__title {
+	padding: 2rem;
+	font-weight: 400;
+	margin: 0 18vw 0 0;
+	white-space: nowrap;
+	color: #000;
+}
+
+.frame__heading-wrap {
+	text-align: center;
+}
+
+.frame__heading {
+	margin: 0;
+	font-family: vortice-concept, sans-serif;
+	font-weight: 400;
+	font-size: 4vw;
+	white-space: nowrap;
+	color: #000;
+}
+
+@media screen and (min-width: 53em) {
+	.frame {
+		grid-template-columns: 10% 80% 10%;
+		grid-template-rows: auto auto auto;
+		grid-template-areas: 'title heading links'
+			'... ... ...'
+			'... demos demos';
+	}
+}
