@@ -150,8 +150,25 @@
 
     requestAnimationFrame(tick);
   };
-  foldedDomCenter = new FoldedDom(foldWrapper);
-  const foldCount = 1;
-  foldedDomCenter.generateFolds(baseContent, foldCount);
-  tick();
+  
+  /***********************************/
+  /********** Preload stuff **********/
+
+  // Preload images
+  const preloadImages = () => {
+    return new Promise((resolve, reject) => {
+      imagesLoaded(document.querySelectorAll('.content__img'), resolve);
+    });
+  };
+  
+  // And then..
+  preloadImages().then(() => {
+    // Remove the loader
+    document.body.classList.remove('loading');
+    // INITIALIZE
+    foldedDomCenter = new FoldedDom(foldWrapper);
+    const foldCount = 1;
+    foldedDomCenter.generateFolds(baseContent, foldCount);
+    tick();
+  });
 })();

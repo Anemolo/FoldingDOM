@@ -274,9 +274,23 @@
   window.addEventListener("mousemove", onMouseMove);
   window.addEventListener("touchmove", onTouchMove);
 
-  // INITIALIZE
+  /***********************************/
+  /********** Preload stuff **********/
 
-  insideFold = new FoldedDom(foldsWrapper, [top, center, bottom]);
-  insideFold.setContent(baseContent);
-  tick();
+  // Preload images
+  const preloadImages = () => {
+    return new Promise((resolve, reject) => {
+      imagesLoaded(document.querySelectorAll('.content__img'), resolve);
+    });
+  };
+  
+  // And then..
+  preloadImages().then(() => {
+    // Remove the loader
+    document.body.classList.remove('loading');
+    // INITIALIZE
+    insideFold = new FoldedDom(foldsWrapper, [top, center, bottom]);
+    insideFold.setContent(baseContent);
+    tick();
+  });
 })();

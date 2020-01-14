@@ -145,11 +145,25 @@
     // Fixefox delta is like 1px and chrome 100
     state.targetScroll += -Math.sign(ev.deltaY) * 30;
   });
-  /****************
-  // INIT STUFF
- ******************/
-  insideFold = new FoldedDom(wrapper, folds);
-  insideFold.setContent(baseContent);
+  
+  /***********************************/
+  /********** Preload stuff **********/
 
-  tick();
+  // Preload images
+  const preloadImages = () => {
+    return new Promise((resolve, reject) => {
+      imagesLoaded(document.querySelectorAll('.content__img'), resolve);
+    });
+  };
+  
+  // And then..
+  preloadImages().then(() => {
+    // Remove the loader
+    document.body.classList.remove('loading');
+    // INITIALIZE
+    insideFold = new FoldedDom(wrapper, folds);
+    insideFold.setContent(baseContent);
+
+    tick();
+  });
 })();

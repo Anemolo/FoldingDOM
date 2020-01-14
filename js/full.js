@@ -99,8 +99,40 @@
 
     requestAnimationFrame(tick);
   };
-  insideFold = new FoldedDom(wrapper, folds);
-  insideFold.setContent(baseContent);
+  
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+  /***********************************/
+  /********** Preload stuff **********/
 
-  tick();
+  const preloadImages = () => {
+    return new Promise((resolve, reject) => {
+      imagesLoaded(document.querySelectorAll('.content__img'), {background: true}, resolve);
+    });
+  };
+
+  // Preload fonts
+  const preloadFonts = () => {
+    return new Promise((resolve, reject) => {
+      WebFont.load({
+        typekit: {
+          id: 'yma3ljw'
+        },
+        active: resolve
+      });
+    });
+  };
+
+  Promise.all([
+    preloadImages(),
+    preloadFonts()  
+  ]).then(() => {
+    document.body.classList.remove('loading');
+    insideFold = new FoldedDom(wrapper, folds);
+    insideFold.setContent(baseContent);
+
+    tick();
+  });
+
 })();

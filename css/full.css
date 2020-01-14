@@ -16,7 +16,6 @@ body {
 	font-weight: 300;
 	padding: 5rem 0;
 	line-height: 1;
-	backface-visibility: hidden;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: -moz-none;
@@ -28,7 +27,6 @@ body {
 .content__img {
 	width: 100%;
 	display: block;
-	backface-visibility: hidden;
 }
 
 /* Effect Styles */
