@@ -136,9 +136,10 @@
   window.addEventListener("touchmove", ev => {
     let touch = ev.touches[0];
     if (lastClientX && isDown) {
-      state.targetScroll += ev.clientX - lastClientX;
+      let diffX = touch.clientX - lastClientX;
+      state.targetScroll += Math.sign(diffX) * 30;
     }
-    lastClientX = ev.clientX;
+    lastClientX = touch.clientX;
   });
 
   window.addEventListener("wheel", ev => {
